@@ -4,14 +4,17 @@ class Player {
       this.y = 230;
       this.width = 20;
       this.height = 20;
-      this.img = '../Images/player.jpg';
+      this.img = '../Images/arrows.png';
     }
     
     drawPlayer(){
       const playerImg = new Image();
       playerImg.src = this.img;
-      ctx.drawImage(playerImg, this.x, this.y, this.width, this.height);
+      
+      ctx.drawImage(playerImg, this.x, this.y, this.width, this.height)
+      
     }
+
 
     movePlayer(keyCode){
  

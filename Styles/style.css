@@ -50,32 +50,31 @@ canvas {
 }
 
 
-
-#morgan-freeman {
+.morgan-freeman {
     background-image: url('../Images/morgan_Freeman.jpg');
 }
 
-#barack-obama{
+.barack-obama{
     background-image: url('../Images/barack_Obama.jpg');
 }
 
-#rihanna {
+.rihanna {
     background-image: url('../Images/dalai_Lama.jpg');
 }
 
-#marcelo-rebelo-de-sousa {
+.marcelo-rebelo-de-sousa {
     background-image: url('../Images/marcelo.jpg');
 }
 
-#serge-gainsbourg {
+.serge-gainsbourg {
     background-image: url('../Images/serge_Gainsbourg.jpg');
 }
 
-#scarlett-johansson {
+.scarlett-johansson {
     background-image: url('../Images/scarlett_Johansson.jpg');
 }
 
-#dalai-lama {
+.dalai-lama {
     background-image: url('../Images/dalai_Lama.jpg');
 }
 

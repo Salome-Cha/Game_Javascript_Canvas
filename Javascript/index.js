@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 let currentGame;
 let currentPlayer;
 
+
 // I don't want the irght column with the Guess Who bloc to appear before the start of the game.
 document.getElementById('right-column').style.display = 'none';
 document.getElementById('countdown-box').style.display = 'none';
@@ -18,18 +19,29 @@ function startGame() {
     document.getElementById('right-column').style.display = 'block';
     document.getElementById('countdown-box').style.display = 'block';
 
-    // Ici Il faudra charger un background random.
 
+// Create the black layer.
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, 880, 460)
-    
+
+// Create the Game and Player.
     currentGame = new Game();
     currentPlayer = new Player();
     currentGame.player = currentPlayer;
+    // currentGame.player.drawPlayer();
 
-    currentGame.player.drawPlayer();
+// Remove former background and pick a new one.
+    currentGame.getRandomBackground()
+    canvas.classList.remove()
+    canvas.classList.add(currentGame.randomBackground)
+
+    // Update the canvas.
     updateCanvas();
 }
+
+
+// Dans la fonction stop game; il faudra remettre le layer noir intermédiaire, qui sert avant le lancement du jeu.
+
 
 
 // When a key is pressed, the player knows where to move thanks to the movePlayer function from PLayer class.
@@ -45,15 +57,7 @@ function updateCanvas() {
  
     currentGame.player.drawPlayer();
     
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, 880, 460);
- 
-    //alreadyCleared for 
-    ctx.clearRect(60, 60, 100, 50);
-    ctx.clearRect(60, 80, 200, 50);
-   ctx.clearRect(200, 200, 200, 200);
-   console.log("RUNNING")
-
+    
     requestAnimationFrame(updateCanvas);
 }
 
