@@ -9,8 +9,13 @@ class Game {
 
 
     getRandomBackground() {
-        for (let i=0; i< this.availableBackgrounds.length; i++) {
-        this.randomBackground= this.availableBackgrounds[Math.floor(Math.random(i))]
+       
+        this.randomBackground = this.availableBackgrounds[Math.floor(Math.random()* this.availableBackgrounds.length)]
     }
-    }
+    
 }
+
+
+
+
+

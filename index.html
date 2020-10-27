@@ -12,60 +12,110 @@
 
 <body class="full-content">
 
-<header id="game-header"> 
-        <h1> INCOGNITO </h1> 
-</header>
+<!-- HOMEPAGE SLIDE -->
+
+<div class ="homepage-slide">
+    <div>
+        
+
+    </div>
+    
+</div>
+
+<!-- ENTRY SLIDE -->
+
+<div class ="entry-slide">
+    <div>
+
+    </div>
+    
+</div>
 
 
-<section id="main-content">   
 
-    <div id="left-column">
-        <button id="start-button"> START </button>
-        <div id="countdown-box">
-        <h3 id="countdown-title"> COUNTDOWN</h3>
-        <p id="countdown-current-value"> 00:00 </p>
+<!-- GAME BOARD-->
+<div class="game-board">
 
-        <!-- Might add an icon here or an hourglass gif -->
+    <header id="game-header"> 
+            <img class="logo-bandeau" src="./Images/logo-Incognito-Bandeau-grand.jpg" alt="game logo incognito">
+    </header>
+
+
+    <section id="main-content">   
+
+        <div id="left-column">
+            <button id="start-button"> START </button>
+            <div id="countdown-box">
+            <h3 id="countdown-title"> COUNTDOWN</h3>
+            <p> <time id="countdown-current-value"> 00:00 </time> </p>
+
+            <!-- Might add an icon here or an hourglass gif -->
+
+            </div>
 
         </div>
 
-    </div>
+        <div id="game-canva">
+            <canvas id="canvas" width="880" height="460"></canvas>
+        </div>
 
-    <div id="game-canva">
-        <canvas id="canvas" width="880" height="460"></canvas>
-    </div>
+        <div class="morgan-freeman"> </div>
+        <div class="barack-obama"> </div>
+        <div class="scarlett-johansson"> </div>
+        <div class="rihanna"> </div>
+        <div class="marcelo-rebelo-de-sousa"> </div>
+        <div class="aung-san"> </div>
+        <div class="serge-gainsbourg"> </div>
+        <div class="dalai-lama"> </div>
 
-    <div class="morgan-freeman"> </div>
-    <div class="barack-obama"> </div>
-    <div class="scarlett-johansson"> </div>
-    <div class="rihanna"> </div>
-    <div class="marcelo-rebelo-de-sousa"> </div>
-    <div class="aung-san"> </div>
-    <div class="serge-gainsbourg"> </div>
-    <div class="dalai-lama"> </div>
-
-    <div id="right-column">
-   
-     <h2 id="guess-title"> GUESS WHO?</h2>
-        
-            <div class="box">
-               <form>
-                  <div class="inputBox">
-                    <input type="text" name="guess" required onkeyup="this.setAttribute('value', this.value);" value="">
-                    <label>Type your guess here</label>
-                  </div>
-                  <input type="submit" name="submit" value="Submit">
-                </form>
-            </div> 
+        <div id="right-column">
     
+                <h2 id="guess-title"> 
+                    GUESS WHO?
+                </h2>
+            
+                <div class="box">
+                    <div class="inputBox" id="form">
+                        <label>Type your guess here</label>
+                        <input type="text" name="guess" required value="" />
+                        <button name="submit" id="submit">Submit</button>
+                    </div>
+                </div> 
+        
+        </div>
+    
+    </section> 
+</div>
+
+<!-- GAME OVER SLIDE -->
+
+<div class ="entry-slide">
+    <div>
+
     </div>
-  
-</section> 
+    
+</div>
+
+<!-- WINNER SLIDE -->
+
+<div class ="winner-slide">
+    <div>
+
+    </div>
+    
+</div>
+
+
+
+
+
+
 
     <script src="./Javascript/Player.js"></script>
     <script src="./Javascript/Game.js"></script>
     <script src="./Javascript/Obstacles.js"></script>
     <script src="./Javascript/index.js"></script>
+
 
 </body>
 </html>

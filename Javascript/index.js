@@ -28,7 +28,7 @@ function startGame() {
     currentGame = new Game();
     currentPlayer = new Player();
     currentGame.player = currentPlayer;
-    // currentGame.player.drawPlayer();
+    currentGame.player.drawPlayer();
 
 // Remove former background and pick a new one.
     currentGame.getRandomBackground()
@@ -49,7 +49,7 @@ document.onkeydown = (e) => {
     let whereToGo = e.keyCode;
 
     // Here is it currentPlayer or player > doubt?
-    currentGame.currentPlayer.movePlayer(whereToGo);
+    currentGame.player.movePlayer(whereToGo);
 }
 
 // This function will update my canva continuously thanks to the requestAnimationFrame function.
@@ -61,57 +61,43 @@ function updateCanvas() {
     requestAnimationFrame(updateCanvas);
 }
 
+// Regarder cela et comprendre. Puis comparer l'input avec ce que je souhaite.
+const submit = document.getElementById('submit');
+submit.addEventListener('click', e => {
+  e.preventDefault;
+  let input = e.target.previousElementSibling.value;
+});
+
+
+// I need to check the validy of the user's input.
+// let rationalizedInput = input.toUpperCase().split("").join(" ")
+// Compare this with the valid value (en faisant le liant entre la randomBackground et le nom cible que cela devrait être.)
 
 
 
 
 
 
+// Créer le chrono avec setInterval nommer le interval et faire un clear interval quand on est à O.
+// On decrease de 1 seconde toutes les 1000 milisecondes.
+
+// on injecte cela dans le dom en commencant par créer un TimeR dans le HTML. Avec un tag pour injecter. 
+
+let timer = document.getElementById("countdown-current-value");
+
+let counter = 10;
+
+let interval = setInterval((countdownd) => {
+  if (counter > 0) { 
+    counter -- ;
+    console.log (counter)
+  } 
+  else {
+    clearInterval(interval)
+    console.log("Time's out!")
+  }
+}, 1000);
+
+timer.innerHTML = countdown;
 
 
-
-
-
-
-
-
-
-
-
-/* Probably useless because we will do this part in html css
-ctx.font = '40px Roboto';
-ctx.fillStyle = "white"
-ctx.fillText('GUESS WHO?', 1000, 60, 180);
-*/
-
-/*
-
-function draw (y) {
-    ctx.fillRect (860, y, 20, 20);
-    ctx.fillStyle = "white";
-    y+=3;
-
-    setTimeout (() =>{
-        draw(y)}, 80);
-}
-
-draw(-4)
-
-
-function clearCanvas() {
-  ctx.clearRect(0, 0, 700, 450); // 700 and 450 are canvas width and height
-}
-
-function drawCanvas(x, y, w, h, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, w, h);
-}
-
-function updateCanvas() {
-
-  requestAnimationFrame(updateCanvas);
-}
-
-updateCanvas()
-
-*/
