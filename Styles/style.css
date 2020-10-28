@@ -3,10 +3,103 @@
     font-family: 'Roboto', sans-serif;
 }
 
-#game-board {
+/* HOMEPAGE SLIDE*/
 
+.homepage-slide {
+    background-image: url("../Images/homepage-visual.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;  
 }
 
+#logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.homepage-logo {
+    width: 500px;
+    margin-top: 0;
+}
+
+.neon-button {
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+    padding: 8px 30px;
+    color: white;
+    text-transform: uppercase;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 1.5s;
+}
+
+.neon-button:hover {
+    box-shadow: 1px 1px 1px 0 white;
+
+    text-shadow: 0 0 1px white, 0 0 1px white;
+}
+
+.homepage-welcome-bloc {
+    margin-top: 65px;
+    margin-bottom: 40px;
+    position: absolute;
+    right: 6%;
+    max-width: 400px;
+    color: white;
+    font-family:'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 190%;
+}
+
+
+h6 {
+   font-family:'Lato', sans-serif;
+   font-size: 20px;
+   font-weight: 600;
+   margin-bottom: 30px;
+}
+
+#enter-button {
+    margin: 30px 0 50px 0;
+}
+
+/* INTRO SLIDE BOARD */
+
+#intro-slide {
+    background-color: black;
+}
+
+.intro-logo {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.rules-bloc {
+    margin-top: 65px;
+    margin-bottom: 40px;
+    position: absolute;
+    right: 6%;
+    max-width: 500px;
+    color: white;
+    font-family:'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 190%;
+}
+/* MAIN GAME BOARD */
 #game-header {
     margin: 15px 15px;
     text-align: center;
@@ -55,6 +148,10 @@ canvas {
     background-size: 880px 460px;
 }
 
+.empty {
+    width: 0;
+    height: 0;
+}
 
 .morgan-freeman {
     background-image: url('../Images/morgan_Freeman.jpg');
@@ -84,12 +181,16 @@ canvas {
     background-image: url('../Images/dalai_Lama.jpg');
 }
 
+.aung-san-suu-kyi {
+    background-image: url('../Images/aung_San_Suu_Kyi.jpg');
+}
+
 #left-column {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 160px;
 }
 
@@ -99,12 +200,17 @@ margin-left: 4px;
 font-size: 20px;
 }
 
+#countdown-current-value {
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+}
+
 #right-column {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 160px;
 }
 
@@ -113,6 +219,8 @@ font-size: 20px;
     font-size: 20px;
     }
 
+
+/* All these has to be removed and changed!
 .box .inputBox input {
         width: 100%;
         padding: 0.625rem 0;
@@ -160,3 +268,42 @@ font-size: 20px;
         background-color: white;
       }
 
+*/
+
+
+#success-slide {
+    background-image: url('../Images/moon-gif.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#failure-slide {
+    background-image: url('../Images/moon-gif.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#button-back-homepage {
+    position: absolute;
+    bottom: 10px;
+    background-color: transparent;
+    text-align: center;
+    padding: 8px 30px;
+    color: rgb(66, 63, 63);
+    text-transform: uppercase;
+    border: 1px solid rgb(66, 63, 63);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 1.5s;
+}
+
+#audio {
+    height: 0;
+    width: 0;
+}

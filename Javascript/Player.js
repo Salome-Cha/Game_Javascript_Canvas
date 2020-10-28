@@ -12,7 +12,7 @@ class Player {
       playerImg.src = this.img;   
       ctx.drawImage(playerImg, this.x, this.y, this.width, this.height);
       playerImg.addEventListener('load', (event) => {
-        draw(playerImg);
+      this.drawPlayer(playerImg);
     });
     }
 

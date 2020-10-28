@@ -3,18 +3,17 @@ class Game {
         this.player = {},
         // this.obstacles = [];  // Only if create obstacles later on.
         this.score = 0,
-        this.availableBackgrounds = ['morgan-freeman','barack-obama', 'scarlett-johansson', 'rihanna', 'marcelo-rebelo-de-sousa', 'aung-san', 'serge-gainsbourg', 'dalai-lama']
-        this.randomBackground = ''
+        this.availableBackgrounds = ['morgan-freeman','barack-obama', 'scarlett-johansson', 'rihanna', 'marcelo-rebelo-de-sousa', 'aung-san-suu-kyi', 'serge-gainsbourg', 'dalai-lama']
+        this.randomBackground =''
     }
 
 
-    getRandomBackground() {
-       
+    getRandomBackground() {   
         this.randomBackground = this.availableBackgrounds[Math.floor(Math.random()* this.availableBackgrounds.length)]
+        this.expectedInput = this.randomBackground.replace("-", " ");
     }
     
 }
-
 
 
 

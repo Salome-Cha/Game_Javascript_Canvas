@@ -5,24 +5,74 @@ let currentGame;
 let currentPlayer;
 
 
-// I don't want the irght column with the Guess Who bloc to appear before the start of the game.
-document.getElementById('right-column').style.display = 'none';
-document.getElementById('countdown-box').style.display = 'none';
+// INITIAL STATUS
 
-// The start button initiates a new round of the game.
-document.getElementById('start-button').onclick = () => {
-    startGame();
+
+function initializeGame () {
+  document.getElementById('homepage-slide').style.display = 'block';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('full-game-board').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+  document.getElementById('button-back-homepage').style.display = 'none';   
+
+  document.getElementById('enter-button').onclick = () => {
+  introGame();
 }
+
+}
+
+initializeGame()
+
+
+
+// ENTRY SLIDE
+
+function introGame () {
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'block';
+  document.getElementById('full-game-board').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+
+  document.getElementById('go-to-game-button').onclick = () => {
+    goToGame();
+  }
+  
+}
+
+function goToGame () {
+  document.getElementById('full-game-board').style.display = 'block';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+
+  document.getElementById('start-button').onclick = () => {
+    startGame();
+  }
+}
+
+// START GAME 
 
 // The startGame function launches a new round by initiating everything: new game, new player, and update canvas.
 function startGame() {
-    document.getElementById('right-column').style.display = 'block';
-    document.getElementById('countdown-box').style.display = 'block';
+  
+  document.getElementById('full-game-board').style.display = 'block';
+
+
+
+  document.getElementById('start-button').style.display = 'block';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
 
 
 // Create the black layer.
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, 880, 460)
+
 
 // Create the Game and Player.
     currentGame = new Game();
@@ -32,16 +82,20 @@ function startGame() {
 
 // Remove former background and pick a new one.
     currentGame.getRandomBackground()
+    
     canvas.classList.remove()
     canvas.classList.add(currentGame.randomBackground)
 
-    // Update the canvas.
+
+// Set the timer on.
+    decreasingTime (counter) 
+
+
+// Update the canvas.
     updateCanvas();
+
+// Call input validation with an event listener on submit.
 }
-
-
-// Dans la fonction stop game; il faudra remettre le layer noir intermédiaire, qui sert avant le lancement du jeu.
-
 
 
 // When a key is pressed, the player knows where to move thanks to the movePlayer function from PLayer class.
@@ -52,52 +106,67 @@ document.onkeydown = (e) => {
     currentGame.player.movePlayer(whereToGo);
 }
 
+
+// Check the timer!
+let timer = document.getElementById("countdown-current-value");
+
+let counter = 35;
+
+function decreasingTime (counter) {
+const interval = setInterval(() => {
+  counter -- 
+    if (counter <= 0) { 
+      clearInterval(interval)
+      timer.innerHTML = "TIME'S OUT!";
+      playerFailure();
+    } 
+    else {
+        if (counter >= 10) {timer.innerHTML = `00:${counter}`}
+        else {timer.innerHTML = `00:0${counter}`}
+    }
+}, 1000);
+
+// Check with Miguel if necessary => to trigger the stopGame function.
+  return counter
+}
+
+
 // This function will update my canva continuously thanks to the requestAnimationFrame function.
 function updateCanvas() {
- 
     currentGame.player.drawPlayer();
-    
     
     requestAnimationFrame(updateCanvas);
 }
 
 // Regarder cela et comprendre. Puis comparer l'input avec ce que je souhaite.
 const submit = document.getElementById('submit');
+
 submit.addEventListener('click', e => {
-  e.preventDefault;
-  let input = e.target.previousElementSibling.value;
+  e.preventDefault; 
+  let userInput = document.getElementById("guess").value;
+  // console.log("user input", userInput);
+  // console.log("expected input", currentGame.expectedInput);
+
+  if (userInput.toLowerCase() === currentGame.expectedInput) {
+   playerSuccess()
+  } else {
+   playerFailure()
+  }
 });
 
 
-// I need to check the validy of the user's input.
-// let rationalizedInput = input.toUpperCase().split("").join(" ")
-// Compare this with the valid value (en faisant le liant entre la randomBackground et le nom cible que cela devrait être.)
+function playerSuccess () {
+  document.getElementById('full-game-board').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'block';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+}
 
-
-
-
-
-
-// Créer le chrono avec setInterval nommer le interval et faire un clear interval quand on est à O.
-// On decrease de 1 seconde toutes les 1000 milisecondes.
-
-// on injecte cela dans le dom en commencant par créer un TimeR dans le HTML. Avec un tag pour injecter. 
-
-let timer = document.getElementById("countdown-current-value");
-
-let counter = 10;
-
-let interval = setInterval((countdownd) => {
-  if (counter > 0) { 
-    counter -- ;
-    console.log (counter)
-  } 
-  else {
-    clearInterval(interval)
-    console.log("Time's out!")
-  }
-}, 1000);
-
-timer.innerHTML = countdown;
-
-
+function playerFailure () {
+  document.getElementById('full-game-board').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'block';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+}
