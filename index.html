@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess Who Game</title>
-    <link rel="stylesheet" href="./Styles/style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./Styles/style.css">
 </head>
 
 <body class="full-content">
 
 <!-- HOMEPAGE SLIDE -->
 
-<div id ="homepage-slide">
+<div id="homepage-slide">
         
     <div class="container" id="logo-container">
-        <img class="homepage-logo" src="./Images/logo_Incognito_Big.png" alt="logo">
+        <img class="homepage-logo" src="./Images/logo_Incognito_Big.png" alt="logo"/>
     </div>
 
     <div class="homepage-welcome-bloc">
-            <h6>Welcome to the Moon, </h6> 
+            <h1>Welcome to the Moon, </h1> 
             
             <p> 
             Tonight, we’re inaugurating the new Lunar Station. <br> 
@@ -45,20 +45,24 @@
             <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
         </div>
 
-        
-        <div class="rules-bloc">
-            <h6> Before to start...</h6> 
-                
-            <p> Rules are simple. 
-                Move your pink pawn by using the arrow keys.
-                You have a few seconds to uncovered the background.
-                Once you guess who's in the picture, submit your answer quickly on the right.
+        <div class="main-intro-content">
+            <img class="gif-animation" src="Images/Moving blue Skeleton.gif" alt="gif animation">
+       
 
-                May the Force be with you!
-            </p>
+        <div class="rules-bloc">
+            <h1> Before to start...a few rules to prevent you from dying on the Moon</h1> 
+                
+            <p class="rules-text">  Rules are simple. <br>
+                <i class="fas fa-arrow-alt-circle-right"></i>   Move your blue pawn on the game board by using the arrow keys. <br>
+                <i class="fas fa-arrow-alt-circle-right"></i>   You have 30 seconds to uncovered the background.  <br>
+                <i class="fas fa-arrow-alt-circle-right"></i>   Once you guess who's in the picture, submit your answer quickly!  
+                <br>
+            <h6> May the Force be with you! </h6>   
+            
         
             <button id="go-to-game-button" class="neon-button"> > Are you ready? </button>
         </div>
+    </div>
     </div>
 </div>
 
@@ -72,15 +76,12 @@
     </header>
 
 
-    <section id="main-content">   
+    <section id="main-content" class="container">   
 
         <div id="left-column">
             <button id="start-button" class="neon-button"> START </button>
-            <div id="countdown-box">
-                <h3 id="countdown-title"> COUNTDOWN </h3>
-             <p> <time id="countdown-current-value"> 00:00 </time> </p>
-            </div>
-
+            
+            <i class="fas fa-angle-double-right"></i> 
         </div>
 
         <div id="game-canva">
@@ -88,17 +89,21 @@
         </div>
 
 
-        <div id="right-column">
+        <div id="right-column" class="container">
     
             <h2 id="guess-title"> 
                     GUESS WHO?
             </h2>
-            
-            <div class="box">
+
+            <div id="countdown-box" class="container">
+                <video id="timer-start" src="Images/Timer 30 sec.mp4"> </video>
+            </div>
+
+            <div class="box container">
                 <div class="inputBox" id="form">
                     <label>Type your guess here</label>
                     <input type="text" id="guess" required value="" />
-                    <button name="submit" id="submit">Submit</button>
+                    <button class="neon-button" name="submit" id="submit">Submit</button>
                 </div>
             </div> 
         </div>
@@ -109,10 +114,11 @@
 
 <div id ="failure-slide">
    
-    <div>       
-        <h4> 
-            YOU LOOSE 
-        </h4>
+    <div class="container" id="end-slide">       
+        <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
+        <h4> SORRY FOR YOU! </h4>
+        <video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
+        <button class="neon-button" name="start-again" id="start-again">TRY AGAIN!</button>
     </div>
     
 </div>
@@ -121,10 +127,11 @@
 
 <div id ="success-slide">
     
-    <div>
-        <h4> 
-            YOU WIN 
-        </h4>
+    <div class="container" id="end-slide">
+        <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
+        <h4> CONGATULATIONS </h4>
+        <video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
+        <button class="neon-button" name="start-again" id="start-again">CHALLENGE YOURSELF</button>
     </div>
     
 </div>
@@ -132,8 +139,8 @@
 <div id ="footer">
     <button id="button-back-homepage"> Back to Homepage </button>
     <div>
-        <audio controls loop id="audio">
-            <source src="./Audio/ES_Dark Utopia - FormantX.mp3" type="audio/mp3">
+        <audio controls loop id="audio-music">
+            <source src="./Audio/Odesza.mp3" type="audio/mp3">
         </audio>
           
     </div>
@@ -146,6 +153,7 @@
     <script src="./Javascript/Game.js"></script>
     <script src="./Javascript/Obstacles.js"></script>
     <script src="./Javascript/index.js"></script>
+    <script src="https://kit.fontawesome.com/4858342c64.js" crossorigin="anonymous"></script>
 
 
 </body>

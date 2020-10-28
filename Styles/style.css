@@ -4,11 +4,14 @@
 }
 
 /* HOMEPAGE SLIDE*/
-
-.homepage-slide {
-    background-image: url('/Images/homepage-visual.jpg');
+html {
+    margin: 0;
+}
+#homepage-slide {
+    background-image: url("/Images/homepage-visual.jpg");
     background-repeat: no-repeat;
     background-size: cover;  
+    height: 100vh;
 }
 
 #logo-container {
@@ -83,6 +86,18 @@ h6 {
     justify-content: center;
     margin-top: 0;
 }
+.gif-animation {
+    width: 400px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+
+.main-intro-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space between;
+}
 
 .rules-bloc {
     margin-top: 65px;
@@ -99,6 +114,17 @@ h6 {
     text-align: center;
     line-height: 190%;
 }
+
+.fas.fa-arrow-alt-circle-right {
+color: #eb0fc9;
+}
+
+rules-text {
+margin-bottom: 30px;
+line-height: 240%;
+}
+
+
 /* MAIN GAME BOARD */
 #game-header {
     margin: 15px 15px;
@@ -110,6 +136,8 @@ h6 {
 }
 
 #start-button {
+    position: relative;
+    top: -120px;
     color: white;
     border: 1px solid white;
     font-size: 14px;
@@ -120,23 +148,35 @@ h6 {
     padding: 10px 30px;
     }
     
+#timer-start {
+    width: 200px;
+}
+
+.fa-angle-double-right {
+font-size: 40px;
+color: rgb(236,7,124,1);
+}
 
 
 #main-content {
     background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    margin: 0 10px;
+    padding: 0;
+
+    width: 100vw;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 800;
-    text-align: center;
     color: white;
     padding: 5px;
+    margin-bottom: 25px;
    
 }
 
@@ -146,6 +186,21 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 880px 460px;
+    
+    /* Check if I keep the gradient and change it
+    border: 5px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+    -webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+    border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
+    border-image-slice: 1;
+    */
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .empty {
@@ -162,15 +217,11 @@ canvas {
 }
 
 .rihanna {
-    background-image: url('/Images/dalai_Lama.jpg');
+    background-image: url('/Images/rihanna.jpg');
 }
 
 .marcelo-rebelo-de-sousa {
     background-image: url('/Images/marcelo.jpg');
-}
-
-.serge-gainsbourg {
-    background-image: url('/Images/serge_Gainsbourg.jpg');
 }
 
 .scarlett-johansson {
@@ -187,11 +238,20 @@ canvas {
 
 #left-column {
     color: white;
+    max-width: 40px;
+    margin-left: 0;
+    position: absolute;
+}
+#full-game-board {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#countdown-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-between;
     justify-content: center;
-    max-width: 160px;
+    padding: 0;
 }
 
 #countdown-title {
@@ -205,13 +265,34 @@ font-size: 20px;
     font-size: 40px;
 }
 
+#style-start-text {
+    font-size: 12px;
+}
+
+
 #right-column {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-width: 160px;
+    justify-content: space-between;
+    margin-right: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+#guess {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 30px;
+    text-transform: lowercase;
+    border-radius: 30px;
+    width: 150px;
+    margin-bottom: 30px;
 }
 
 #guess-title {
@@ -219,7 +300,10 @@ font-size: 20px;
     font-size: 20px;
     }
 
-
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
 /* All these has to be removed and changed!
 .box .inputBox input {
         width: 100%;
@@ -269,17 +353,6 @@ font-size: 20px;
 */
 
 
-#success-slide {
-    /* background-image: url('/Images/8-gif.gif'); */
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-#failure-slide {
-    background-image: url('/Images/moon-gif.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 #footer {
     display: flex;
     align-items: center;
@@ -300,7 +373,31 @@ font-size: 20px;
     transition: 1.5s;
 }
 
-#audio {
+#audio-music {
     height: 0;
     width: 0;
+}
+
+#final-video {
+    height: 100vh;
+    margin-top: 0;
+}
+
+#end-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h4 {
+   color: #062284;
+   position: absolute;
+   top: 58%;
+}
+
+#try-again {
+    position: relative;
+
+    margin-top: 0;
 }

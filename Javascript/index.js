@@ -38,11 +38,17 @@ function introGame () {
   document.getElementById('go-to-game-button').onclick = () => {
     goToGame();
   }
+
+  let music = document.getElementById("audio-music");
+  music.play();
+  
   
 }
 
 function goToGame () {
   document.getElementById('full-game-board').style.display = 'block';
+  document.getElementById('countdown-box').style.display = 'none';
+  document.getElementById('right-column').style.display = 'none';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
@@ -59,14 +65,18 @@ function goToGame () {
 function startGame() {
   
   document.getElementById('full-game-board').style.display = 'block';
-
-
-
-  document.getElementById('start-button').style.display = 'block';
+  document.getElementById('countdown-box').style.display = 'block';
+  document.getElementById('right-column').style.display = 'flex';
+  document.getElementById('start-button').style.display = 'none';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('success-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('left-column').style.position = 'static';
+
+//  Launch video countdown:
+let countdownVideo = document.getElementById('timer-start');
+countdownVideo.play();
 
 
 // Create the black layer.
@@ -108,21 +118,15 @@ document.onkeydown = (e) => {
 
 
 // Check the timer!
-let timer = document.getElementById("countdown-current-value");
 
-let counter = 35;
+let counter = 3000;
 
 function decreasingTime (counter) {
 const interval = setInterval(() => {
   counter -- 
     if (counter <= 0) { 
       clearInterval(interval)
-      timer.innerHTML = "TIME'S OUT!";
       playerFailure();
-    } 
-    else {
-        if (counter >= 10) {timer.innerHTML = `00:${counter}`}
-        else {timer.innerHTML = `00:0${counter}`}
     }
 }, 1000);
 
@@ -134,7 +138,6 @@ const interval = setInterval(() => {
 // This function will update my canva continuously thanks to the requestAnimationFrame function.
 function updateCanvas() {
     currentGame.player.drawPlayer();
-    
     requestAnimationFrame(updateCanvas);
 }
 
@@ -144,8 +147,8 @@ const submit = document.getElementById('submit');
 submit.addEventListener('click', e => {
   e.preventDefault; 
   let userInput = document.getElementById("guess").value;
-  // console.log("user input", userInput);
-  // console.log("expected input", currentGame.expectedInput);
+  console.log("user input", userInput);
+  console.log("expected input", currentGame.expectedInput);
 
   if (userInput.toLowerCase() === currentGame.expectedInput) {
    playerSuccess()
@@ -155,12 +158,18 @@ submit.addEventListener('click', e => {
 });
 
 
+let finalVideo = document.getElementById("final-video");
+
+
+
+
 function playerSuccess () {
   document.getElementById('full-game-board').style.display = 'none';
   document.getElementById('success-slide').style.display = 'block';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
+  finalVideo.play();
 }
 
 function playerFailure () {
@@ -169,4 +178,5 @@ function playerFailure () {
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
+  finalVideo.play();
 }

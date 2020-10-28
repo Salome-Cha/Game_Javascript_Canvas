@@ -4,7 +4,8 @@ class Player {
       this.y = 230;
       this.width = 20;
       this.height = 20;
-      this.img = './Images/player.jpg';
+      // this.img = './Images/player.jpg';
+      this.img = './Images/pink-blue-heart.gif'
     }
     
     drawPlayer(){
@@ -15,7 +16,7 @@ class Player {
       this.drawPlayer(playerImg);
     });
     }
-1
+
 
     movePlayer(keyCode){
  
