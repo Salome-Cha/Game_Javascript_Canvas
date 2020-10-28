@@ -15,7 +15,7 @@ class Player {
       this.drawPlayer(playerImg);
     });
     }
-
+1
 
     movePlayer(keyCode){
  
