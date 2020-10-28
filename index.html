@@ -50,12 +50,12 @@
        
 
         <div class="rules-bloc">
-            <h1> Before to start...a few rules to prevent you from dying on the Moon</h1> 
+            <h1> Before to start...a few rules to prevent you from dying on the Moon!</h1> 
                 
-            <p class="rules-text">  Rules are simple. <br>
-                <i class="fas fa-arrow-alt-circle-right"></i>   Move your blue pawn on the game board by using the arrow keys. <br>
-                <i class="fas fa-arrow-alt-circle-right"></i>   You have 30 seconds to uncovered the background.  <br>
-                <i class="fas fa-arrow-alt-circle-right"></i>   Once you guess who's in the picture, submit your answer quickly!  
+            <p class="rules-text">  
+                <i class="fas fa-arrow-alt-circle-right"></i> &emsp;  Move your blue pawn on the game board by using the arrow keys. <br>
+                <i class="fas fa-arrow-alt-circle-right"></i> &emsp;  You have 30 seconds to uncovered the background.  <br>
+                <i class="fas fa-arrow-alt-circle-right"></i> &emsp;  As soon as you guess who's in the picture, submit your answer quickly!  
                 <br>
             <h6> May the Force be with you! </h6>   
             
@@ -70,21 +70,23 @@
 
 <!-- GAME BOARD-->
 <div class="game-board" id="full-game-board">
+    
 
-    <header id="game-header"> 
-            <img class="logo-bandeau" src="./Images/logo-Incognito-small.png" alt="game logo incognito">
+    <header id="game-header" class="container"> 
+        <button id="start-button" class="neon-button"> START </button>
+        <img id="logo-main-game" src="./Images/logo-Incognito-small.png" alt="game logo incognito">
     </header>
 
 
-    <section id="main-content" class="container">   
-
-        <div id="left-column">
-            <button id="start-button" class="neon-button"> START </button>
-            
-            <i class="fas fa-angle-double-right"></i> 
+    <section id="main-content" class="container-fluid">   
+       
+        
+        <div id="left-column">                   
+            <i class="fas fa-angle-double-right" id="pink-arrows"></i> 
         </div>
 
         <div id="game-canva">
+          
             <canvas id="canvas" width="880" height="460"></canvas>
         </div>
 
@@ -115,9 +117,12 @@
 <div id ="failure-slide">
    
     <div class="container" id="end-slide">       
-        <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
-        <h4> SORRY FOR YOU! </h4>
-        <video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
+        <img class="final-slide-logo" src="./Images/logo-Incognito-small.png" alt="logo">
+        <h4> SORRY, <br> GAME (L)OVER ! </h4>
+        
+        <!--<video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video> -->
+        <img class="heart-gameover" src="Images/black-heart-game-over.gif" alt="game over">
+        <p> Thank you for playing </p>
         <button class="neon-button" name="start-again" id="start-again">TRY AGAIN!</button>
     </div>
     
@@ -129,7 +134,7 @@
     
     <div class="container" id="end-slide">
         <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
-        <h4> CONGATULATIONS </h4>
+        <h3> CONGRATS, YOU A GENIUS! </h3>
         <video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
         <button class="neon-button" name="start-again" id="start-again">CHALLENGE YOURSELF</button>
     </div>
@@ -140,7 +145,7 @@
     <button id="button-back-homepage"> Back to Homepage </button>
     <div>
         <audio controls loop id="audio-music">
-            <source src="./Audio/Odesza.mp3" type="audio/mp3">
+            <source src="./Audio/Scheune.mp3" type="audio/mp3">
         </audio>
           
     </div>
@@ -151,7 +156,6 @@
 
     <script src="./Javascript/Player.js"></script>
     <script src="./Javascript/Game.js"></script>
-    <script src="./Javascript/Obstacles.js"></script>
     <script src="./Javascript/index.js"></script>
     <script src="https://kit.fontawesome.com/4858342c64.js" crossorigin="anonymous"></script>
 

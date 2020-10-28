@@ -53,6 +53,7 @@ function goToGame () {
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
   document.getElementById('success-slide').style.display = 'none';
+  document.getElementById('pink-arrows').style.display = 'none';
 
   document.getElementById('start-button').onclick = () => {
     startGame();
@@ -67,12 +68,12 @@ function startGame() {
   document.getElementById('full-game-board').style.display = 'block';
   document.getElementById('countdown-box').style.display = 'block';
   document.getElementById('right-column').style.display = 'flex';
-  document.getElementById('start-button').style.display = 'none';
+  document.getElementById('start-button').style.visibility = 'hidden';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('success-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
-  document.getElementById('left-column').style.position = 'static';
+  document.getElementById('pink-arrows').style.display = 'block';
 
 //  Launch video countdown:
 let countdownVideo = document.getElementById('timer-start');
@@ -119,7 +120,7 @@ document.onkeydown = (e) => {
 
 // Check the timer!
 
-let counter = 3000;
+let counter = 30;
 
 function decreasingTime (counter) {
 const interval = setInterval(() => {

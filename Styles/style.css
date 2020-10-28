@@ -6,6 +6,7 @@
 /* HOMEPAGE SLIDE*/
 html {
     margin: 0;
+    padding: 0;
 }
 #homepage-slide {
     background-image: url("/Images/homepage-visual.jpg");
@@ -36,12 +37,10 @@ html {
     border: 1px solid white;
     border-radius: 30px;
     cursor: pointer;
-    transition: 1.5s;
 }
 
 .neon-button:hover {
     box-shadow: 1px 1px 1px 0 white;
-
     text-shadow: 0 0 1px white, 0 0 1px white;
 }
 
@@ -67,6 +66,7 @@ h6 {
    font-size: 20px;
    font-weight: 600;
    margin-bottom: 30px;
+   margin-bottom: 40px;
 }
 
 #enter-button {
@@ -96,15 +96,15 @@ h6 {
 .main-intro-content {
     display: flex;
     flex-direction: row;
-    justify-content: space between;
+    justify-content: space-between;
 }
 
 .rules-bloc {
-    margin-top: 65px;
+    margin-top: 75px;
     margin-bottom: 40px;
     position: absolute;
     right: 6%;
-    max-width: 500px;
+    max-width: 700px;
     color: white;
     font-family:'Roboto', sans-serif;
     display: flex;
@@ -119,16 +119,21 @@ h6 {
 color: #eb0fc9;
 }
 
-rules-text {
+.rules-text {
 margin-bottom: 30px;
-line-height: 240%;
+line-height: 260%;
 }
 
 
 /* MAIN GAME BOARD */
+
 #game-header {
-    margin: 15px 15px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+#logo-main-game {
+    width: 200px;
+    
 }
 
 .logo-bandeau {
@@ -136,25 +141,23 @@ line-height: 240%;
 }
 
 #start-button {
-    position: relative;
-    top: -120px;
     color: white;
     border: 1px solid white;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
-    margin-bottom: 40px;
     background-color: black;
     padding: 10px 30px;
     }
+
     
 #timer-start {
-    width: 200px;
+    width: 300px;
 }
 
 .fa-angle-double-right {
 font-size: 40px;
 color: rgb(236,7,124,1);
+margin-top: 10px;
 }
 
 
@@ -162,13 +165,10 @@ color: rgb(236,7,124,1);
     background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 0 10px;
-    padding: 0;
-
-    width: 100vw;
+    width: 100%;
 }
 
 h1 {
@@ -240,7 +240,6 @@ canvas {
     color: white;
     max-width: 40px;
     margin-left: 0;
-    position: absolute;
 }
 #full-game-board {
     margin-left: 10px;
@@ -279,8 +278,9 @@ font-size: 20px;
     margin-right: 0;
     padding: 0;
     width: 100%;
-
 }
+
+
 
 #guess {
     background-color: white;
@@ -390,14 +390,26 @@ label {
     align-items: center;
 }
 
+.final-slide-logo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 250px;
+    display: flex;
+}
+
 h4 {
-   color: #062284;
+   color:white;
    position: absolute;
-   top: 58%;
+   top: 42%;
+   text-align: center;
 }
 
 #try-again {
     position: relative;
 
     margin-top: 0;
+}
+
+.heart-gameover {
+    box-shadow: 0 0 8px 8px black inset;
 }
