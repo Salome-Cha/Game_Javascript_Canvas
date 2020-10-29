@@ -475,7 +475,6 @@ h3 {
     background: -webkit-radial-gradient(#da0f85,  #1542ce); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-    /* color: white; */
     position: absolute;
     top: 42%;
     text-align: center;
