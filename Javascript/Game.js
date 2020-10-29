@@ -24,7 +24,7 @@ class Game {
     }
 
 
-    getRandomBackground() {   
+    getRandomBackground() { 
         this.randomBackground = this.availableBackgrounds[Math.floor(Math.random()* this.availableBackgrounds.length)]
         this.expectedInput = this.randomBackground.replaceAll("-", " ");
     }

@@ -187,14 +187,6 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 880px 460px;
-    
-    /* Check if I keep the gradient and change it
-    border: 5px solid transparent;
-    -moz-border-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-    -webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-    border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
-    border-image-slice: 1;
-    */
 }
 
 .inputBox {
@@ -278,13 +270,6 @@ canvas {
 }
 
 
-
-
-
-
-
-
-
 #left-column {
     color: white;
     max-width: 40px;
@@ -323,7 +308,7 @@ font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
     margin-right: 0;
     padding: 0;
     width: 100%;

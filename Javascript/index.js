@@ -4,9 +4,15 @@ const ctx = canvas.getContext('2d');
 let currentGame;
 let currentPlayer;
 let intervalId;
+let countdownVideo = document.getElementById('timer-start');
+
+function keyPressed(e) {  
+  let whereToGo = e.keyCode
+  currentGame.player.movePlayer(whereToGo);
+}
+
 
 // INITIAL STATUS
-
 
 function initializeGame () {
   document.getElementById('homepage-slide').style.display = 'block';
@@ -19,15 +25,12 @@ function initializeGame () {
   document.getElementById('enter-button').onclick = () => {
   introGame();
 }
-
 }
 
 initializeGame()
 
 
-
 // ENTRY SLIDE
-
 function introGame () {
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'block';
@@ -41,8 +44,6 @@ function introGame () {
 
   let music = document.getElementById("audio-music");
   music.play();
-  
-  
 }
 
 function goToGame () {
@@ -78,8 +79,10 @@ function startGame() {
   document.getElementById("guess").value = '';
 
 //  Launch video countdown:
-let countdownVideo = document.getElementById('timer-start');
-countdownVideo.play();
+  countdownVideo.play();
+
+//Add the keys listener:
+  document.addEventListener('keydown', keyPressed)
 
 
 // Create the black layer.
@@ -92,11 +95,11 @@ countdownVideo.play();
     currentPlayer = new Player();
     currentGame.player = currentPlayer;
     currentGame.player.drawPlayer();
+    
 
 // Remove former background and pick a new one.
+    canvas.removeAttribute('class');
     currentGame.getRandomBackground()
-    
-    canvas.classList.remove()
     canvas.classList.add(currentGame.randomBackground)
 
 
@@ -106,21 +109,8 @@ countdownVideo.play();
 
 // Update the canvas.
     updateCanvas();
-
-// Call input validation with an event listener on submit.
 }
 
-
-// When a key is pressed, the player knows where to move thanks to the movePlayer function from PLayer class.
-document.onkeydown = (e) => {
-    let whereToGo = e.keyCode;
-
-    // Here is it currentPlayer or player > doubt?
-    currentGame.player.movePlayer(whereToGo);
-}
-
-
-// Check the timer!
 
 let counter = 30;
 
@@ -131,11 +121,12 @@ function decreasingTime (counter) {
         clearInterval(intervalId)
         playerFailure();
         countdownVideo.pause();
-        countdownVideo.currentTime = 0;
+        countdownVideo.currentTime = 0
+        document.removeEventListener('keydown', keyPressed)
+        
       }
   }, 1000);
 
-// Check with Miguel if necessary => to trigger the stopGame function.
   return counter
 }
 
@@ -143,24 +134,24 @@ function decreasingTime (counter) {
 // This function will update my canva continuously thanks to the requestAnimationFrame function.
 function updateCanvas() {
     currentGame.player.drawPlayer();
-    requestAnimationFrame(updateCanvas);
+    interval = requestAnimationFrame(updateCanvas);
 }
 
 // Regarder cela et comprendre. Puis comparer l'input avec ce que je souhaite.
 const submit = document.getElementById('submit');
 
 submit.addEventListener('click', e => {
-  e.preventDefault; 
+  e.preventDefault(); 
   let userInput = document.getElementById("guess").value;
-  console.log("user input", userInput);
-  console.log("expected input", currentGame.expectedInput);
+  //console.log("user input", userInput);
+  //console.log("expected input", currentGame.expectedInput);
 
   if (userInput.toLowerCase() === currentGame.expectedInput) {
    playerSuccess()
   } else {
    playerFailure()
   }
-
+  document.removeEventListener('keydown', keyPressed)
   countdownVideo.pause();
   countdownVideo.currentTime = 0;
 });
