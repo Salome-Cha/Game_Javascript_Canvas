@@ -11,7 +11,6 @@ function keyPressed(e) {
   currentGame.player.movePlayer(whereToGo);
 }
 
-
 // INITIAL STATUS
 
 function initializeGame () {
@@ -131,13 +130,13 @@ function decreasingTime (counter) {
 }
 
 
-// This function will update my canva continuously thanks to the requestAnimationFrame function.
+// This function will update the canva continuously thanks to the requestAnimationFrame function.
 function updateCanvas() {
     currentGame.player.drawPlayer();
     interval = requestAnimationFrame(updateCanvas);
 }
 
-// Regarder cela et comprendre. Puis comparer l'input avec ce que je souhaite.
+
 const submit = document.getElementById('submit');
 
 submit.addEventListener('click', e => {
@@ -157,7 +156,6 @@ submit.addEventListener('click', e => {
 });
 
 
-let finalVideo = document.getElementById("final-video");
 
 function playerSuccess () {
   document.getElementById('full-game-board').style.display = 'none';
@@ -167,7 +165,6 @@ function playerSuccess () {
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
 
-  finalVideo.play();
 
   // Ends the previous game!
   clearInterval(intervalId);
@@ -178,7 +175,8 @@ function playerSuccess () {
  
   document.getElementById('start-again-winner').onclick = () => {
     backToGame();
-}
+  }
+
 }
 
 function playerFailure () {
