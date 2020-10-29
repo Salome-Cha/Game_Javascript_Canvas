@@ -103,8 +103,7 @@
 
             <div class="box container">
                 <div class="inputBox" id="form">
-                    <label>Type your guess here</label>
-                    <input type="text" id="guess" required value="" />
+                    <input type="text" id="guess" required value="" placeholder="Type your guess here"/>
                     <button class="neon-button" name="submit" id="submit">Submit</button>
                 </div>
             </div> 
@@ -120,10 +119,8 @@
         <img class="final-slide-logo" src="./Images/logo-Incognito-small.png" alt="logo">
         <h4> SORRY, <br> GAME (L)OVER ! </h4>
         
-        <!--<video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video> -->
         <img class="heart-gameover" src="Images/black-heart-game-over.gif" alt="game over">
-        <p> Thank you for playing </p>
-        <button class="neon-button" name="start-again" id="start-again">TRY AGAIN!</button>
+        <button class="neon-button" name="start-again" id="start-again-failure">TRY AGAIN!</button>
     </div>
     
 </div>
@@ -133,10 +130,13 @@
 <div id ="success-slide">
     
     <div class="container" id="end-slide">
-        <img class="intro-logo" src="./Images/logo-Incognito-small.png" alt="logo">
-        <h3> CONGRATS, YOU A GENIUS! </h3>
-        <video id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
-        <button class="neon-button" name="start-again" id="start-again">CHALLENGE YOURSELF</button>
+        <img class="final-slide-logo" id="winner-logo" src="./Images/logo-Incognito-small.png" alt="logo">
+        <h3> CONGRATS, <br> YOU MUST BE A GENIUS! </h3>
+        <h5> Let's get this party started... </h5>
+    
+        <video loop id="final-video" src="Videos/Final-Video.mp4" type="video/mp4"> </video>
+        <button class="neon-button" name="start-again" id="start-again-winner">CHALLENGE YOURSELF</button>
+    
     </div>
     
 </div>

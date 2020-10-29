@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 let currentGame;
 let currentPlayer;
-
+let intervalId;
 
 // INITIAL STATUS
 
@@ -47,13 +47,13 @@ function introGame () {
 
 function goToGame () {
   document.getElementById('full-game-board').style.display = 'block';
-  document.getElementById('countdown-box').style.display = 'none';
-  document.getElementById('right-column').style.display = 'none';
+  document.getElementById('left-column').style.display = 'flex';
+  document.getElementById('right-column').style.display = 'flex';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
   document.getElementById('success-slide').style.display = 'none';
-  document.getElementById('pink-arrows').style.display = 'none';
+  document.getElementById('form').style.visibility = 'hidden';
 
   document.getElementById('start-button').onclick = () => {
     startGame();
@@ -74,6 +74,8 @@ function startGame() {
   document.getElementById('success-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
   document.getElementById('pink-arrows').style.display = 'block';
+  document.getElementById('form').style.visibility = 'visible';
+  document.getElementById("guess").value = '';
 
 //  Launch video countdown:
 let countdownVideo = document.getElementById('timer-start');
@@ -123,13 +125,15 @@ document.onkeydown = (e) => {
 let counter = 30;
 
 function decreasingTime (counter) {
-const interval = setInterval(() => {
-  counter -- 
-    if (counter <= 0) { 
-      clearInterval(interval)
-      playerFailure();
-    }
-}, 1000);
+  intervalId = setInterval(() => {
+    counter -- 
+      if (counter <= 0) { 
+        clearInterval(intervalId)
+        playerFailure();
+        countdownVideo.pause();
+        countdownVideo.currentTime = 0;
+      }
+  }, 1000);
 
 // Check with Miguel if necessary => to trigger the stopGame function.
   return counter
@@ -156,21 +160,34 @@ submit.addEventListener('click', e => {
   } else {
    playerFailure()
   }
+
+  countdownVideo.pause();
+  countdownVideo.currentTime = 0;
 });
 
 
 let finalVideo = document.getElementById("final-video");
 
-
-
-
 function playerSuccess () {
   document.getElementById('full-game-board').style.display = 'none';
   document.getElementById('success-slide').style.display = 'block';
+  document.getElementById('failure-slide').style.display = 'none';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
+
   finalVideo.play();
+
+  // Ends the previous game!
+  clearInterval(intervalId);
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, 880, 460);
+  currentGame.player.x = 0;
+  currentGame.player.y = 230;
+ 
+  document.getElementById('start-again-winner').onclick = () => {
+    backToGame();
+}
 }
 
 function playerFailure () {
@@ -179,5 +196,33 @@ function playerFailure () {
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
-  finalVideo.play();
+  document.getElementById('success-slide').style.display = 'none';
+
+  document.getElementById('start-again-failure').onclick = () => {
+    backToGame();
 }
+   // Ends the previous game!
+   clearInterval(intervalId);
+   ctx.fillStyle = 'black';
+   ctx.fillRect(0, 0, 880, 460);
+   currentGame.player.x = 0;
+   currentGame.player.y = 230;
+}
+
+
+function backToGame () {
+  document.getElementById('full-game-board').style.display = 'block';
+  document.getElementById('left-column').style.display = 'flex';
+  document.getElementById('right-column').style.display = 'flex';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+  document.getElementById('form').style.visibility = 'hidden';
+  document.getElementById('start-button').style.visibility = 'visible';
+  
+  document.getElementById('start-button').onclick = () => {
+    startGame();
+  }
+}
+

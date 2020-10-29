@@ -75,12 +75,13 @@ h6 {
 
 /* INTRO SLIDE BOARD */
 
+
 #intro-slide {
     background-color: black;
 }
 
 .intro-logo {
-    width: 380px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,15 +130,13 @@ line-height: 260%;
 
 #game-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    height: 100px;
 }
 #logo-main-game {
-    width: 200px;
-    
-}
-
-.logo-bandeau {
-    width: 380px;
+    width: 200px;    
 }
 
 #start-button {
@@ -147,6 +146,8 @@ line-height: 260%;
     font-family: 'Roboto', sans-serif;
     background-color: black;
     padding: 10px 30px;
+    position: relative;
+    left: 350px;
     }
 
     
@@ -236,6 +237,54 @@ canvas {
     background-image: url('/Images/aung_San_Suu_Kyi.jpg');
 }
 
+.penelope-cruz {
+    background-image: url('/Images/Penelope-Cruz.jpg');
+}
+
+.steven-spielberg {
+    background-image: url('/Images/Steven-Spielberg.jpg');
+}
+
+.pedro-almodovar {
+    background-image: url('/Images/Pedro-Almodovar.jpg');
+}
+
+.mike-jagger {
+    background-image: url('/Images/Mike-Jagger.jpg');
+}
+
+.meryl-streep {
+    background-image: url('/Images/Meryl-Streep.jpg');
+}
+
+.javier-bardem {
+    background-image: url('/Images/Javier-Bardem.jpg');
+}
+
+.emma-watson {
+    background-image: url('/Images/Emma-Watson.jpg');
+}
+
+.cristiano-ronaldo {
+    background-image: url('/Images/Cristiano-Ronaldo.jpg');
+}
+
+.alexandria-ocasio-cortes {
+    background-image: url('/Images/Alexandria-Ocasio-Cortes.jpg');
+}
+
+.al-pacino {
+    background-image: url('/Images/Al-Pacino.jpg');
+}
+
+
+
+
+
+
+
+
+
 #left-column {
     color: white;
     max-width: 40px;
@@ -274,7 +323,7 @@ font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between
     margin-right: 0;
     padding: 0;
     width: 100%;
@@ -289,15 +338,16 @@ font-size: 20px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     padding: 10px 30px;
-    text-transform: lowercase;
     border-radius: 30px;
-    width: 150px;
-    margin-bottom: 30px;
+    width: 250px;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 #guess-title {
     color: white;
     font-size: 20px;
+    margin-bottom: 50px;
     }
 
 label {
@@ -379,8 +429,14 @@ label {
 }
 
 #final-video {
-    height: 100vh;
+    margin-top: 10px;
+    height: 100vh; 
     margin-top: 0;
+}
+
+#winner-logo {
+position: absolute;
+top: 2px;
 }
 
 #end-slide {
@@ -388,12 +444,13 @@ label {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-top: 0;
 }
 
 .final-slide-logo {
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 250px;
+    width: 260px;
     display: flex;
 }
 
@@ -406,10 +463,36 @@ h4 {
 
 #try-again {
     position: relative;
-
     margin-top: 0;
 }
 
 .heart-gameover {
     box-shadow: 0 0 8px 8px black inset;
+}
+
+
+h3 {
+    background: -webkit-radial-gradient(#da0f85,  #1542ce); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    /* color: white; */
+    position: absolute;
+    top: 42%;
+    text-align: center;
+    font-size: 20px;
+}
+
+h5 {
+    background: -webkit-radial-gradient(#da0f85,  #1542ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    /* color: white; */
+    font-size: 14px;
+    position: absolute;
+    top: 56%;
+    text-align: center;
+}
+#start-again-winner {
+    position: absolute;
+    top: 90%;
 }

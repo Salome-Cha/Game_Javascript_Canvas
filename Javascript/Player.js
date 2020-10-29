@@ -11,9 +11,15 @@ class Player {
     drawPlayer(){
       const playerImg = new Image();
       playerImg.src = this.img;   
-      ctx.drawImage(playerImg, this.x, this.y, this.width, this.height);
       playerImg.addEventListener('load', (event) => {
-      this.drawPlayer(playerImg);
+        ctx.drawImage(playerImg, this.x, this.y, this.width, this.height);
+    });
+    }
+
+    resetPlayer(){
+      playerImg.src = this.img;        
+      playerImg.addEventListener('load', (event) => {
+        ctx.drawImage(playerImg, 0, 230, this.width, this.height);
     });
     }
 
