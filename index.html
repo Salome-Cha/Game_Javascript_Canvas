@@ -73,7 +73,7 @@
     
 
     <header id="game-header" class="container"> 
-        <button id="start-button" class="neon-button"> START </button>
+        <button id="start-button" class="border-gradient border-gradient-purple"> START </button>
         <img id="logo-main-game" src="./Images/logo-Incognito-small.png" alt="game logo incognito">
     </header>
 
@@ -118,10 +118,13 @@
    
     <div class="container" id="end-slide">       
         <img class="final-slide-logo" src="./Images/logo-Incognito-small.png" alt="logo">
+
         <h4> SORRY, <br> GAME (L)OVER ! </h4>
         
         <img class="heart-gameover" src="Images/black-heart-game-over.gif" alt="game over">
         <button class="neon-button" name="start-again" id="start-again-failure">TRY AGAIN!</button>
+
+        <div id="print-score"> Your Past Best Score: <span id="best-score">   </span> </div>
     </div>
     
 </div>
@@ -132,12 +135,13 @@
 
     <div class="container" id="end-slide">
         <img class="final-slide-logo" id="winner-logo" src="./Images/logo-Incognito-small.png" alt="logo">
-        <h3> CONGRATS, <br> YOU MUST BE A GENIUS! </h3>
+        
+        <h3> CONGRATS, <br> YOU'RE IN DA CLUB ! </h3>
         <h5> Let's get this party started... </h5>
         <img loop="infinite" src="Images/Moon-Animation-Black-Sens.gif" id="final-video" alt="gif moon black">
     
         <button class="neon-button" name="start-again" id="start-again-winner">CHALLENGE YOURSELF, &nbsp; PLAY AGAIN</button>
-    
+        <div id="print-score"> Score: <span id="round-score">   </span> </div>
     </div>
     
 </div>

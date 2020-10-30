@@ -5,6 +5,7 @@ let currentGame;
 let currentPlayer;
 let intervalId;
 let countdownVideo = document.getElementById('timer-start');
+let Outcome;
 
 function keyPressed(e) {  
   let whereToGo = e.keyCode
@@ -110,6 +111,53 @@ function startGame() {
     updateCanvas();
 }
 
+// Create a second level to keep the score from previous round.
+function secondLevel() {
+  
+  document.getElementById('full-game-board').style.display = 'block';
+  document.getElementById('countdown-box').style.display = 'block';
+  document.getElementById('right-column').style.display = 'flex';
+  document.getElementById('start-button').style.visibility = 'hidden';
+  document.getElementById('homepage-slide').style.display = 'none';
+  document.getElementById('intro-slide').style.display = 'none';
+  document.getElementById('success-slide').style.display = 'none';
+  document.getElementById('failure-slide').style.display = 'none';
+  document.getElementById('pink-arrows').style.display = 'block';
+  document.getElementById('form').style.visibility = 'visible';
+  document.getElementById("guess").value = '';
+
+//  Launch video countdown:
+  countdownVideo.play();
+
+//Add the keys listener:
+  document.addEventListener('keydown', keyPressed)
+
+
+// Create the black layer.
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, 880, 460)
+
+
+// Create the Game and Player.
+    currentGame.player.drawPlayer();
+    
+
+// Remove former background and pick a new one.
+    canvas.removeAttribute('class');
+    currentGame.getRandomBackground()
+    canvas.classList.add(currentGame.randomBackground)
+
+
+// Set the timer on.
+    decreasingTime (counter) 
+
+
+// Update the canvas.
+    updateCanvas();
+
+
+}
+
 
 let counter = 30;
 
@@ -164,7 +212,8 @@ function playerSuccess () {
   document.getElementById('homepage-slide').style.display = 'none';
   document.getElementById('intro-slide').style.display = 'none';
   document.getElementById('failure-slide').style.display = 'none';
-
+  currentGame.score++
+  console.log(currentGame.score)
 
   // Ends the previous game!
   clearInterval(intervalId);
@@ -177,6 +226,7 @@ function playerSuccess () {
     backToGame();
   }
 
+  document.getElementById('round-score').innerHTML = currentGame.score;
 }
 
 function playerFailure () {
@@ -196,6 +246,11 @@ function playerFailure () {
    ctx.fillRect(0, 0, 880, 460);
    currentGame.player.x = 0;
    currentGame.player.y = 230;
+
+   keepingScore ();
+   console.log(Outcome);
+
+   document.getElementById('best-score').innerHTML = Outcome;
 }
 
 
@@ -211,7 +266,45 @@ function backToGame () {
   document.getElementById('start-button').style.visibility = 'visible';
   
   document.getElementById('start-button').onclick = () => {
-    startGame();
+    secondLevel();
   }
 }
 
+// Table score
+
+
+function keepingScore () {
+let currentScore = currentGame.score;
+let highScore = localStorage.getItem('BestScores');
+if (currentScore > highScore) {
+  localStorage.BestScores = currentScore;
+}
+Outcome = localStorage.getItem('BestScores');
+return Outcome;
+// Push in inner HTML.
+}
+
+
+
+
+// LEVEL 2
+
+/*
+let counter = 30;
+
+function decreasingTime (counter) {
+  intervalId = setInterval(() => {
+    counter -- 
+      if (counter <= 0) { 
+        clearInterval(intervalId)
+        playerFailure();
+        countdownVideo.pause();
+        countdownVideo.currentTime = 0
+        document.removeEventListener('keydown', keyPressed)
+        
+      }
+  }, 1000);
+
+  return counter
+}
+*/
